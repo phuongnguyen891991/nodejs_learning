@@ -23,4 +23,22 @@ eventEmitter.on('data_received', function() {
 // fire the connection event
 eventEmitter.emit('connection');
 
-console.log("program end");
+console.log("program end\n");
+
+//count the number of events
+var eventListeners = require('events').EventEmitter.listenerCount
+        (eventEmitter, 'connection');
+console.log(eventListeners + " Listner(s) listening to connection event");
+
+// readfile systems
+var fs = require('fs');
+fs.readFile('input.txt', function(err, data) {
+    if(err)
+    {
+        console.log(err.stack);
+        return;
+    }
+    console.log(data.toString());
+});
+
+console.log('Program end \n');
