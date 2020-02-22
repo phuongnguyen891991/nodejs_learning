@@ -24,3 +24,8 @@ var buff = new Buffer(256);
 len = buff.write("this is an example of buffer");
 
 console.log("log console is: " + len);
+
+//convert to json
+
+var json = buff.toJSON(buff);
+console.log(json);
