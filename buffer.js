@@ -29,3 +29,53 @@ console.log("log console is: " + len);
 
 var json = buff.toJSON(buff);
 console.log(json);
+
+var asscii = new Buffer(26);
+for(var i = 0; i < 26; i++)
+{
+    asscii[i] = i + 97 //a
+}
+
+console.log(asscii.toString('ascii'));
+console.log(asscii.toString('ascii', 0, 5));
+
+//the method to concatenate nodejs buffer to the single node buffer
+var buffer1 = new Buffer('TutorialsPoint ');
+var buffer2 = new Buffer('Simply Easy Learning');
+
+var BUFFER = new Buffer.concat([buffer1, buffer2]);
+console.log(BUFFER.toString());
+
+
+// the method to compare buffer: buffer.compare(...)
+
+var result = buffer1.compare(buffer2);
+
+if (result > 0)
+{
+    console.log(buffer1 + "is come after " + buffer2);
+}
+else if (result == 0)
+{
+    console.log(buffer1 + "is same as" + buffer2);
+}
+else
+{
+    console.log(buffer1 + "is come before" + buffer2);
+}
+
+
+// the method to coppy buffer:
+var cp_buff1 = new Buffer("abcd");
+var cp_buff2 = new Buffer(5);
+
+cp_buff1.copy(cp_buff2);
+console.log("the copied cp_buff1: " + cp_buff1);
+console.log("the copied cp_buff2: " + cp_buff2.toString());
+
+//slice buffer
+var slice_buff = buffer1.slice(0, 5);
+console.log("the slice slice_buff: " + slice_buff);
+console.log("the lenght of slice_buff: " + slice_buff.length);
+
+console.log("End program \n");
